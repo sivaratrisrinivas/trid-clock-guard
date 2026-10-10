@@ -40,6 +40,7 @@ def create_file(s: Session, tenant: str, scenario: str | None) -> LoanFile:
     f = LoanFile(id=secrets.token_hex(4), tenant=tenant, scenario=scenario,
                  created_at=datetime.now(timezone.utc).isoformat())
     s.add(f)
+    s.flush()
     s.add(Clock(file_id=f.id))
     s.commit()
     return f
