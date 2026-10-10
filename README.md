@@ -2,7 +2,7 @@
 
 A guard for a Penny-style mortgage intake agent (built with Copperlane's stack: Python/FastAPI, Postgres). It watches the borrower chat, stamps the moment the 6th Reg Z application item lands, computes the Loan Estimate due date on the lender's own calendar, and blocks fee-taking tools until the borrower has the LE and has said to proceed.
 
-**Live demo:** https://trid-clock-guard.onrender.com (free tier, first load can take ~30 s) · **Walkthrough video:** [trid-clock-guard.onrender.com/static/walkthrough.mp4](https://trid-clock-guard.onrender.com/static/walkthrough.mp4) ([repo copy](static/walkthrough.mp4))
+**Live demo:** https://trid-clock-guard.onrender.com (free tier, first load can take ~30 s) · **Walkthrough video (61 s, silent):** [watch on the demo site](https://trid-clock-guard.onrender.com/static/walkthrough.mp4) or [repo copy](static/walkthrough.mp4), recorded by `scripts/record_walkthrough.py`
 
 ## Problem
 An agent that collects intake info piecemeal can create a Reg Z "application" mid-chat without anyone noticing. That starts a 3-business-day Loan Estimate clock and locks most fees. If the agent can also take fees, it needs to know which of its own steps start clocks and which tools are off limits.
