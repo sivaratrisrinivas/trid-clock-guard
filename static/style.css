@@ -68,3 +68,4 @@ h2 small{font-weight:400;color:#7a7364}
 footer{font-size:11px;color:#7a7364;padding:4px 16px 8px}
 footer a{color:#7a5a2c}
 @media (max-width:900px){main{grid-template-columns:1fr}body{height:auto}}
+.mid > *{flex-shrink:0}
