@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRID Clock Guard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><b>TRID Clock Guard</b><span>Reg Z application trigger, Loan Estimate clock, and fee gate for a Penny-style intake agent. Synthetic data.</span></div>
+  <div class="controls">
+    <label>Lender <select id="tenant"></select></label>
+    <label>Conversation <select id="scenario"></select></label>
+    <button id="next" class="primary">Next step</button>
+    <button id="play">Play all</button>
+    <button id="reset">Reset</button>
+    <div class="simclock" title="Simulated clock for this file">Sim clock <b id="simnow">-</b></div>
+  </div>
+</header>
+<main>
+  <section class="col chat">
+    <h2>Borrower chat <small id="stepinfo"></small></h2>
+    <div id="chat"></div>
+    <form id="compose"><input id="msg" placeholder="Type as the borrower (uses sim clock)" autocomplete="off"><button>Send</button></form>
+  </section>
+  <section class="col mid">
+    <div id="clock" class="clock"></div>
+    <h2 style="margin-top:10px">Reg Z application items <small>12 CFR 1026.2(a)(3)(ii)</small> <span id="count" class="count">0 / 6</span></h2>
+    <div id="items"></div>
+  </section>
+  <section class="col tools">
+    <h2>Agent tools <small>every call goes through the gate</small></h2>
+    <div class="toolbtns">
+      <button data-tool="charge_fee" data-fee="appraisal" data-amt="650">charge_fee(appraisal, $650)</button>
+      <button data-tool="charge_fee" data-fee="application" data-amt="400">charge_fee(application, $400)</button>
+      <button data-tool="charge_fee" data-fee="credit_report" data-amt="35">charge_fee(credit_report, $35)</button>
+      <button data-tool="collect_payment_method">collect_payment_method()</button>
+      <button data-le="email">send_loan_estimate(email)</button>
+      <button data-le="in_person">send_loan_estimate(in person)</button>
+      <button id="advance">Advance sim clock 1 day</button>
+    </div>
+    <h2>Tool-call audit log</h2>
+    <div id="audit"></div>
+  </section>
+</main>
+<div id="caption" hidden></div>
+<footer>Prototype by Srinivas Sivaratri for Copperlane. Not legal advice. Fictional lenders and borrowers. <a href="https://github.com/sivaratrisrinivas/trid-clock-guard">Source</a> · <a href="/static/walkthrough.mp4">Walkthrough video</a></footer>
+<script src="/static/app.js"></script>
+</body>
+</html>
